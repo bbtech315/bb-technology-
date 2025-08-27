@@ -387,14 +387,54 @@ document.addEventListener('DOMContentLoaded', function() {
     if (bestsellersCarousel) {
         // Sample bestseller products
         const bestsellers = [
-            { name: 'Wireless Earbuds', price: '₦12,500', image: 'https://placehold.co/150x150/3498db/ffffff?text=Earbuds', category: 'Electronics' },
-{ name: 'Smart Watch', price: '₦15,000', image: 'https://placehold.co/150x150/f39c12/ffffff?text=Watch', category: 'Electronics' },
-{ name: 'Portable Blender', price: '₦8,500', image: 'https://placehold.co/150x150/2ecc71/ffffff?text=Blender', category: 'Home & Living' },
-{ name: 'ZURIÉ Sneakers', price: '₦11,000', image: 'https://placehold.co/150x150/9b59b6/ffffff?text=Sneakers', category: 'Fashion' },
-{ name: 'Car Electric Jack', price: '₦22,000', image: 'https://placehold.co/150x150/34495e/ffffff?text=Jack', category: 'Automobile' },
-{ name: 'Skin Care Set', price: '₦9,500', image: 'https://placehold.co/150x150/e74c3c/ffffff?text=Skincare', category: 'Health & Beauty' },
-{ name: 'Educational Tablet', price: '₦18,000', image: 'https://placehold.co/150x150/1abc9c/ffffff?text=Tablet', category: 'Kids & Baby' },
-{ name: 'Bluetooth Speaker', price: '₦7,500', image: 'https://placehold.co/150x150/3498db/ffffff?text=Speaker', category: 'Electronics' }
+            {
+                name: 'Apple AirPods Pro (2nd Gen)',
+                category: 'Electronics',
+                price: '₦89,999',
+                image: 'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'Samsung Galaxy Watch 6',
+                category: 'Wearables',
+                price: '₦125,500',
+                image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'JBL Charge 5 Bluetooth Speaker',
+                category: 'Audio',
+                price: '₦45,999',
+                image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'iPhone 15 Pro Max Case',
+                category: 'Accessories',
+                price: '₦8,500',
+                image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'Anker PowerCore 20000mAh',
+                category: 'Electronics',
+                price: '₦18,999',
+                image: 'https://images.unsplash.com/photo-1609592806787-3d9c5b1e8b5e?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'Adjustable Laptop Stand',
+                category: 'Office',
+                price: '₦12,500',
+                image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'Nike Air Force 1 Sneakers',
+                category: 'Fashion',
+                price: '₦35,000',
+                image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop&crop=center'
+            },
+            {
+                name: 'Skincare Routine Set',
+                category: 'Beauty',
+                price: '₦22,999',
+                image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=200&fit=crop&crop=center'
+            }
         ];
         
         // Populate bestsellers carousel
@@ -476,52 +516,76 @@ function loadSampleProducts() {
     
     const products = [
         {
-            name: 'Wireless Bluetooth Earbuds',
-            description: 'High-quality wireless earbuds with noise cancellation',
-            price: '₦15,999',
-            image: 'https://placehold.co/300x200'
+            name: 'Sony WH-1000XM5 Headphones',
+            description: 'Industry-leading noise canceling wireless headphones with 30-hour battery life',
+            price: '₦125,999',
+            image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Smart Fitness Tracker',
-            description: 'Track your health metrics and exercise with this smart wearable',
-            price: '₦12,500',
-            image: 'https://placehold.co/300x200'
+            name: 'Fitbit Versa 4 Fitness Tracker',
+            description: 'Advanced fitness tracker with GPS, heart rate monitoring, and 6+ day battery',
+            price: '₦85,500',
+            image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Portable Power Bank',
-            description: '20,000mAh fast-charging power bank for all your devices',
-            price: '₦8,999',
-            image: 'https://placehold.co/300x200'
+            name: 'Anker PowerCore III Elite',
+            description: '25,600mAh portable charger with 87W USB-C PD for laptops and phones',
+            price: '₦28,999',
+            image: 'https://images.unsplash.com/photo-1609592806787-3d9c5b1e8b5e?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Smart Home Security Camera',
-            description: 'HD security camera with motion detection and night vision',
-            price: '₦22,500',
-            image: 'https://placehold.co/300x200'
+            name: 'Ring Video Doorbell Pro 2',
+            description: '1536p HD+ video doorbell with 3D motion detection and two-way talk',
+            price: '₦95,500',
+            image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Stylish Laptop Backpack',
-            description: 'Water-resistant backpack with anti-theft features',
-            price: '₦7,500',
-            image: 'https://placehold.co/300x200'
+            name: 'Peak Design Everyday Backpack',
+            description: 'Premium camera and laptop backpack with weatherproof exterior',
+            price: '₦75,500',
+            image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Professional Makeup Kit',
-            description: 'Complete makeup set with premium quality products',
-            price: '₦18,999',
-            image: 'https://placehold.co/300x200'
+            name: 'Fenty Beauty Makeup Collection',
+            description: 'Complete professional makeup kit with 40 foundation shades',
+            price: '₦45,999',
+            image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Stainless Steel Water Bottle',
-            description: 'Eco-friendly insulated water bottle that keeps drinks hot or cold',
-            price: '₦4,500',
-            image: 'https://placehold.co/300x200'
+            name: 'Hydro Flask Water Bottle 32oz',
+            description: 'Insulated stainless steel bottle keeps drinks cold 24hrs, hot 12hrs',
+            price: '₦15,500',
+            image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=300&h=200&fit=crop&crop=center'
         },
         {
-            name: 'Organic Skincare Set',
-            description: 'Natural skincare products made with organic ingredients',
-            price: '₦13,999',
-            image: 'https://placehold.co/300x200'
+            name: 'The Ordinary Skincare Routine',
+            description: 'Complete 7-step skincare regimen with vitamin C, retinol, and hyaluronic acid',
+            price: '₦35,999',
+            image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=200&fit=crop&crop=center'
+        },
+        {
+            name: 'MacBook Air M2 Laptop Stand',
+            description: 'Ergonomic aluminum laptop stand with adjustable height and cooling design',
+            price: '₦18,500',
+            image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=200&fit=crop&crop=center'
+        },
+        {
+            name: 'Adidas Ultraboost 22 Running Shoes',
+            description: 'Premium running shoes with responsive Boost midsole and Primeknit upper',
+            price: '₦65,000',
+            image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=200&fit=crop&crop=center'
+        },
+        {
+            name: 'Instant Pot Duo 7-in-1',
+            description: 'Multi-use pressure cooker: slow cooker, rice cooker, steamer, sauté, yogurt maker',
+            price: '₦42,999',
+            image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop&crop=center'
+        },
+        {
+            name: 'Dyson V15 Detect Cordless Vacuum',
+            description: 'Powerful cordless vacuum with laser dust detection and LCD screen',
+            price: '₦285,000',
+            image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center'
         }
     ];
     

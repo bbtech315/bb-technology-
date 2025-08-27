@@ -76,7 +76,7 @@
                             <span class="countdown-label">Seconds</span>
                         </div>
                     </div>
-                    <a href="#shop" class="btn btn-flash">Shop Now</a>
+                    <a href="shop.html" class="btn btn-flash">Shop Now</a>
                 </div>
             </div>
             
@@ -695,7 +695,7 @@
                     <button class="login-tab-btn" data-tab="register">Register</button>
                 </div>
                 <div class="login-tab-content active" id="login-tab">
-                    <form id="login-form">
+                    <form id="login-form" onsubmit="authManager.handleLogin(event)">
                         <div class="form-group">
                             <label for="login-email">Email or Phone</label>
                             <input type="text" id="login-email" name="login-email" placeholder="Enter email or phone number" required>
@@ -703,15 +703,17 @@
                         <div class="form-group">
                             <label for="login-password">Password</label>
                             <input type="password" id="login-password" name="login-password" required>
-                            <span class="password-toggle"><i class="fas fa-eye"></i></span>
+                            <span class="password-toggle" onclick="authManager.togglePassword('login-password')"><i class="fas fa-eye"></i></span>
                         </div>
                         <div class="form-group captcha-container">
                             <label>Human Verification</label>
                             <div class="captcha">
-                                <div id="captcha-code">XYZ123</div>
-                                <button type="button" id="refresh-captcha"><i class="fas fa-sync-alt"></i></button>
+                                <div class="captcha-display" id="login-captcha-display">A3B7K</div>
+                                <button type="button" class="captcha-refresh" onclick="authManager.refreshCaptcha('login-captcha-display')">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
                             </div>
-                            <input type="text" id="captcha-input" placeholder="Enter the code above" required>
+                            <input type="text" id="login-captcha-input" placeholder="Enter CAPTCHA" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Login</button>
@@ -722,7 +724,7 @@
                     </form>
                 </div>
                 <div class="login-tab-content" id="register-tab">
-                    <form id="register-form">
+                    <form id="register-form" onsubmit="authManager.handleRegister(event)">
                         <div class="form-group">
                             <label for="register-name">Full Name</label>
                             <input type="text" id="register-name" name="register-name" required>
@@ -738,7 +740,7 @@
                         <div class="form-group">
                             <label for="register-password">Password</label>
                             <input type="password" id="register-password" name="register-password" required>
-                            <span class="password-toggle"><i class="fas fa-eye"></i></span>
+                            <span class="password-toggle" onclick="authManager.togglePassword('register-password')"><i class="fas fa-eye"></i></span>
                         </div>
                         <div class="form-group">
                             <label for="register-confirm-password">Confirm Password</label>
@@ -747,10 +749,12 @@
                         <div class="form-group captcha-container">
                             <label>Human Verification</label>
                             <div class="captcha">
-                                <div id="register-captcha-code">XYZ123</div>
-                                <button type="button" id="register-refresh-captcha"><i class="fas fa-sync-alt"></i></button>
+                                <div class="captcha-display" id="register-captcha-display">XYZ123</div>
+                                <button type="button" class="captcha-refresh" onclick="authManager.refreshCaptcha('register-captcha-display')">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
                             </div>
-                            <input type="text" id="register-captcha-input" placeholder="Enter the code above" required>
+                            <input type="text" id="register-captcha-input" placeholder="Enter CAPTCHA" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Register</button>
@@ -758,7 +762,7 @@
                     </form>
                 </div>
                 <div class="login-tab-content" id="forgot-password-tab">
-                    <form id="forgot-password-form">
+                    <form id="forgot-password-form" onsubmit="authManager.handleForgotPassword(event)">
                         <div class="form-group">
                             <label for="forgot-email">Email Address</label>
                             <input type="email" id="forgot-email" name="forgot-email" required>
@@ -766,10 +770,12 @@
                         <div class="form-group captcha-container">
                             <label>Human Verification</label>
                             <div class="captcha">
-                                <div id="forgot-captcha-code">XYZ123</div>
-                                <button type="button" id="forgot-refresh-captcha"><i class="fas fa-sync-alt"></i></button>
+                                <div class="captcha-display" id="forgot-captcha-display">XYZ123</div>
+                                <button type="button" class="captcha-refresh" onclick="authManager.refreshCaptcha('forgot-captcha-display')">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
                             </div>
-                            <input type="text" id="forgot-captcha-input" placeholder="Enter the code above" required>
+                            <input type="text" id="forgot-captcha-input" placeholder="Enter CAPTCHA" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Reset Password</button>
@@ -791,10 +797,30 @@
         </a>
     </div>
 
+    <!-- OTP Verification Modal -->
+    <div id="otpModal" class="modal otp-modal">
+        <div class="modal-content">
+            <span class="close" onclick="authManager.closeOtpModal()">&times;</span>
+            <div class="otp-verification">
+                <h2>Verify Your Account</h2>
+                <p id="otp-message">We've sent a 6-digit verification code to your email/phone.</p>
+                <div class="otp-input-container">
+                    <input type="text" id="otp-input" placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}">
+                </div>
+                <div class="otp-actions">
+                    <button type="button" class="btn btn-primary" onclick="authManager.verifyOtp()">Verify</button>
+                    <button type="button" class="btn btn-secondary" onclick="authManager.resendOtp()">Resend Code</button>
+                </div>
+                <div class="otp-timer" id="otp-timer"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
     <script src="js/testimonials.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
